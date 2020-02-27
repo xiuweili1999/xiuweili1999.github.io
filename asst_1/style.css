@@ -1,0 +1,131 @@
+/* || General setup */
+
+body {
+  margin: 0;
+  padding : 0;
+  font-family: 'Roboto Slab';
+  background-color:#cecfd8;
+  color: black;
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: -1px 1px #c1b55e;
+  font-family: 'Roboto Slab';
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;   
+  font-family: 'Libre Baskerville';
+}
+
+.header {
+  background: #15284a;
+  color: #c1b55e;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.image {
+  width: inherit;
+  border-radius: 4px;
+  border: solid 1px #c1b55e;
+  
+}
+
+.logo {
+  width:250px;
+  border-radius: 4px;
+  border: solid 1px #c1b55e;
+}
+
+.content {
+  max-width: 960px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.section_one {
+  flex: 0 1 auto;
+  width: 175px;
+  margin-right: 15px;
+}
+
+.section_one p {
+  flex: 0 1 auto;
+  background: #e6e7e1;
+  border-radius: 4px;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.02rem;
+}
+
+.section_two {
+  max-width: 640px;
+  flex: 0 2 auto;
+  border-radius: 4px;
+  background: #e6e7e1;
+  padding: 15px;
+  font-family: 'Libre Baskerville';
+}
+
+.project_title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+  letter-spacing: 0.02rem;
+}
+.project_role {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  letter-spacing: 0.02rem;
+}
+.responsibilities {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    justify-content: center;
+  }
+
+  .section_one {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 15px;
+    flex: 1 0 auto;
+  }
+
+}
+
