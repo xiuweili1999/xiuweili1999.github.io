@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Xiuwei Li's Lab 4</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">Xiuwei's Lab 4</div>
+        <button class="button" onclick="clickMe()">
+          Click me to make a change
+        </button>
+        <div class="content">
+          <p>
+            Retro fam narwhal hoodie meggings viral bushwick yr chartreuse.
+            Chartreuse seitan banh mi selfies, woke ennui venmo craft beer. Air
+            plant tumeric retro DIY iPhone poutine. +1 gastropub chillwave,
+            cronut glossier pork belly tacos poke next level fanny pack vegan
+            jianbing lo-fi.
+          </p>
+        </div>
+        <div class="footer"></div>
+      </div>
+    </div>
+    <script>
+      var fullName = 'Xiuwei Li'
+      var firstName = fullName.substring(0,6)
+      var lastName = fullName.substring(7,9)
+      var nameLength = firstName.length + lastName.length
+      var thirdLetter = fullName.charAt(2).toUpperCase()
+      var lastThree = lastName.slice(-3)
+      function clickMe() {
+        const content = document.querySelector(".content");
+        content.innerHTML = 'Hello World';
+
+        const p1 = document.createElement('p');
+        p1.setAttribute('class', 'p1');
+        document.querySelector('.content').appendChild(p1);
+        p1.innerHTML = 'My name has ' + nameLength + ' characters';
+
+        const p2 = document.createElement('p');
+        p2.setAttribute('class', 'p2');
+        document.querySelector('.content').appendChild(p2);
+        p2.innerHTML = 'The third letter character in my name is ' + thirdLetter + "<br />" + lastThree;
+
+        const hd = document.createElement('three');
+        hd.setAttribute('class', 'hd');
+        document.querySelector('.header').appendChild(hd);
+        hd.innerHTML = '&nbsp' + nameLength;
+      }
+    </script>
+  </body>
+</html>
