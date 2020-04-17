@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Simple Servers Lab</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
 
-<head>
-  <title>Replace Me With Your Lab Page</title>
-  <link rel="stylesheet" type="text/css" href="./styles.css">
-</head>
-
-<body>
-  <div class="container">
-    <div class="wrapper">
-      <div class="header">Replace Me With Your Lab Page</div>
-      <div class="content"></div>
-      <div class="footer"></div>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">Simple Servers Lab</div>
+        <div class="content">
+          <div id="chartContainer" style="height: 480px; width: 100%;"></div>
+        </div>
+        <div class="footer"></div>
+      </div>
     </div>
-  </div>
-  <script>
-    fetch('/api') // Rather than fetching from PG County, we're going to fetch from our own server.
-      .then(res => res.json())
-      .then(res => {
-        // Here's where your chart code should go.
-      })
-  </script>
-</body>
-
+    <script>
+      fetch("/api") // Rather than fetching from PG County, we're going to fetch from our own server.
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res.dataPoints);
+          // Here's where your chart code should go.
+          const chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "dark1",
+            title: {
+              text: "Let's Find Somewhere to Eat",
+            },
+            axisX: {
+              labelFontSize: 13,
+              interval: 1,
+            },
+            axisY: {
+              labelFontSize: 25,
+              interval: 10,
+              scaleBreaks: {
+                customBreaks: [
+                  {
+                    startValue: 20,
+                    endValue: 35,
+                  },
+                  {
+                    startValue: 60,
+                    endValue: 120,
+                  },
+                  {
+                    startValue: 160,
+                    endValue: 220,
+                  },
+                ],
+              },
+            },
+            data: [
+              {
+                type: "bar",
+                dataPoints: res.dataPoints,
+              },
+            ],
+          });
+          chart.render();
+        });
+    </script>
+  </body>
 </html>
