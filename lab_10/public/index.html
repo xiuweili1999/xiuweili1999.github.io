@@ -14,12 +14,15 @@
           <form class="targetForm" id="labForm">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" />
+            <label for="zipcode">Zip Code</label>
+            <input type="text" id="zipcode" name="zipcode" />
             <label for="interests">Interests</label>
             <textarea id="interests" name="interests" rows="5" cols="33">
                 Default text says what?
             </textarea
             ><br />
             <button id="formBtn">Submit</button>
+            <button id="getBtn">Get</button>
           </form>
         </div>
       </div>
@@ -29,11 +32,9 @@
         e.preventDefault(); // this prevents your page reloading on button click
         const target = document.querySelector("#labForm");
         const btn = document.querySelector("#formBtn");
-
         const formToSend = new FormData(target);
-
         fetch("/api", {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
@@ -49,6 +50,19 @@
           });
       }
 
+      function getRequest(a) {
+        a.preventDefault();
+        fetch("/api", {
+          method: "GET",
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          });
+      }
+
+      const getBtn = document.querySelector("#getBtn");
+      getBtn.addEventListener("click", getRequest);
       const formBtn = document.querySelector("#formBtn");
       formBtn.addEventListener("click", sendForm);
     </script>
